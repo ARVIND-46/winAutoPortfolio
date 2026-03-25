@@ -29,8 +29,9 @@ const BrandsSection = () => {
         <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-orange-400 mx-auto rounded-full"></div>
       </header>
 
-      <div className="max-w-7xl mx-auto w-full mb-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="max-w-7xl mx-auto w-full mb-24">
+        {/* Mobile View: Grid */}
+        <div className="grid grid-cols-2 gap-6 md:hidden">
           {brands.slice(0, 12).map((brand, index) => (
             <div key={index} className="h-32 bg-[#0c0d10] border border-white/5 rounded-3xl flex items-center justify-center p-8 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -47,6 +48,35 @@ const BrandsSection = () => {
                 )}
             </div>
           ))}
+        </div>
+
+        {/* Desktop View: LogoLoop */}
+        <div className="hidden md:block py-10">
+          <LogoLoop 
+            logos={brands}
+            speed={40}
+            gap={80}
+            logoHeight={100}
+            pauseOnHover={true}
+            fadeOut={true}
+            fadeOutColor="#060709"
+            renderItem={(brand) => (
+              <div className="h-24 bg-[#0c0d10] border border-white/5 rounded-[2rem] min-w-[200px] flex items-center justify-center p-8 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                {brand.isImage ? (
+                  <img 
+                    src={brand.src} 
+                    alt={brand.name} 
+                    className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 opacity-30 hover:opacity-100 group-hover:scale-110"
+                  />
+                ) : (
+                  <span className={`text-2xl md:text-3xl font-black italic tracking-tighter ${brand.color} opacity-30 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110`}>
+                    {brand.name}
+                  </span>
+                )}
+              </div>
+            )}
+          />
         </div>
       </div>
 
