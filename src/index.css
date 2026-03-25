@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0056b3;
+  --color-brand-light-blue: #e6f0ff;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-bounce-slow: bounce 3s ease-in-out infinite;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans tracking-tight uppercase;
+}
+
+.tagline {
+  @apply font-semibold uppercase tracking-[0.2em];
+}
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
+body {
+  @apply bg-black text-white font-sans;
+}
+
+

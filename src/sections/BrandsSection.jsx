@@ -1,0 +1,69 @@
+import LogoLoop from '../components/LogoLoop';
+import bajajLogo from '../assets/brands/bajaj.png';
+import motulLogo from '../assets/brands/motul.png';
+import kbxLogo from '../assets/brands/kbx.png';
+
+const BrandsSection = () => {
+  const brands = [
+    { name: 'BAJAJ', src: bajajLogo, isImage: true },
+    { name: 'MOTUL', src: motulLogo, isImage: true },
+    { name: 'KBX', src: kbxLogo, isImage: true },
+    { name: 'FLASH', color: 'text-blue-500', isImage: false },
+    { name: 'LUMINAZ', color: 'text-teal-500', isImage: false },
+    { name: 'ADVIK', color: 'text-white', isImage: false },
+    { name: 'ANABOND', color: 'text-green-500', isImage: false },
+    { name: 'UCAL', color: 'text-blue-400', isImage: false },
+    { name: 'NP', color: 'text-red-500', isImage: false },
+    { name: 'OETIKER', color: 'text-white', isImage: false },
+    { name: 'BOSCH', color: 'text-white', isImage: false },
+    { name: 'MINDA', color: 'text-white', isImage: false },
+  ];
+
+  return (
+    <section className="bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden border-t border-white/5">
+      <header className="max-w-7xl mx-auto mb-20 space-y-6 text-center">
+        <div className="flex items-center justify-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+          <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.4em]">Authorized Logistics & Technical Partners</span>
+        </div>
+        <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-orange-400 mx-auto rounded-full"></div>
+      </header>
+
+      <div className="max-w-7xl mx-auto w-full mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {brands.slice(0, 12).map((brand, index) => (
+            <div key={index} className="h-32 bg-[#0c0d10] border border-white/5 rounded-3xl flex items-center justify-center p-8 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
+               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+               {brand.isImage ? (
+                  <img 
+                    src={brand.src} 
+                    alt={brand.name} 
+                    className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 opacity-30 hover:opacity-100 group-hover:scale-110"
+                  />
+                ) : (
+                  <span className={`text-2xl font-black italic tracking-tighter ${brand.color} opacity-30 hover:opacity-100 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110`}>
+                    {brand.name}
+                  </span>
+                )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="text-center">
+        <p className="text-[10px] font-black tracking-[0.5em] text-white/20 uppercase">Trusted by industry-leading brands worldwide</p>
+      </div>
+      
+      {/* Decorative vertical lines */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02]">
+         <div className="max-w-7xl mx-auto h-full grid grid-cols-6 gap-0">
+            {[...Array(7)].map((_, i) => (
+               <div key={i} className="border-l border-white h-full"></div>
+            ))}
+         </div>
+      </div>
+    </section>
+  );
+};
+
+export default BrandsSection;
