@@ -1,5 +1,5 @@
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const DEFAULT_EFFECT_OPTIONS = {
@@ -43,7 +43,30 @@ const DEFAULT_EFFECT_OPTIONS = {
 const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
   const hyperspeed = useRef(null);
   const appRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(true);
 
+  const isMobile = () => typeof window !== 'undefined' && (window.innerWidth <= 768 || /Mobi|Android/i.test(navigator.userAgent));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (hyperspeed.current) {
+      observer.observe(hyperspeed.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (appRef.current) {
+      appRef.current.visible = isVisible;
+    }
+  }, [isVisible]);
   useEffect(() => {
     if (appRef.current) {
       appRef.current.dispose();
@@ -357,11 +380,14 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
 
         this.renderer = new THREE.WebGLRenderer({
           antialias: false,
-          alpha: true
+          alpha: true,
+          powerPreference: "high-performance",
+          precision: isMobile() ? 'lowp' : 'highp'
         });
         this.renderer.setSize(initW, initH, false);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile() ? 1 : 2));
         this.composer = new EffectComposer(this.renderer);
+        this.visible = true;
         container.append(this.renderer.domElement);
 
         this.camera = new THREE.PerspectiveCamera(options.fov, initW / initH, 0.1, 10000);
@@ -370,6 +396,11 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         this.camera.position.x = 0;
         this.scene = new THREE.Scene();
         this.scene.background = null;
+
+        this.isMobile = isMobile();
+        if (this.isMobile) {
+          this.options.lightPairsPerRoadWay = Math.min(this.options.lightPairsPerRoadWay, 15);
+        }
 
         let fog = new THREE.Fog(options.colors.background, options.length * 0.2, options.length * 500);
         this.scene.fog = fog;
@@ -441,6 +472,13 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
       initPasses() {
         if (!this.renderer || this.disposed) return;
         this.renderPass = new RenderPass(this.scene, this.camera);
+        
+        if (this.isMobile) {
+          this.renderPass.renderToScreen = true;
+          this.composer.addPass(this.renderPass);
+          return;
+        }
+
         this.bloomPass = new EffectPass(
           this.camera,
           new BloomEffect({
@@ -640,7 +678,10 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
       }
 
       tick() {
-        if (this.disposed) return;
+        if (this.disposed || !this.visible) {
+          if (!this.disposed) requestAnimationFrame(this.tick);
+          return;
+        }
 
         if (!this.hasValidSize) {
           const w = this.container.offsetWidth;
@@ -1182,7 +1223,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
     };
   }, [effectOptions]);
 
-  return <div className="w-full h-full" ref={hyperspeed}></div>;
+  return <div className="w-full h-full pointer-events-none" ref={hyperspeed}></div>;
 };
 
 export default Hyperspeed;

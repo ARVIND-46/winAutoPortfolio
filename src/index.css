@@ -21,9 +21,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  overscroll-behavior-y: none;
+  background-color: black;
 }
 
 html::-webkit-scrollbar {
@@ -33,6 +35,20 @@ html::-webkit-scrollbar {
 
 body {
   @apply bg-black text-white font-sans;
+  overflow-x: hidden;
+}
+
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+  transform: translateZ(0); /* Force Hardware acceleration */
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.char-span, .word {
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 

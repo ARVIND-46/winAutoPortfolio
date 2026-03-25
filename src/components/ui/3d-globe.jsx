@@ -400,20 +400,46 @@ export function Globe3D({
   onMarkerClick,
   onMarkerHover,
 }) {
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const mergedConfig = useMemo(
     () => ({ ...defaultConfig, ...config }),
     [config],
   );
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   return (
-    <div className={cn("relative h-[400px] md:h-[500px] w-full", className)}>
+    <div 
+      ref={containerRef}
+      className={cn("relative h-[400px] md:h-[500px] w-full", className)}
+    >
       <Canvas
         gl={{
-          antialias: true,
+          antialias: !isMobile,
           alpha: true,
           powerPreference: "high-performance",
+          precision: isMobile ? 'lowp' : 'highp'
         }}
-        dpr={[1, 2]}
+        dpr={isMobile ? [1, 1] : [1, 2]}
+        frameloop={isVisible ? "always" : "demand"}
+        performance={{ min: 0.5 }}
         camera={{
           fov: 45,
           near: 0.1,
@@ -422,6 +448,7 @@ export function Globe3D({
         }}
         style={{
           background: mergedConfig.backgroundColor || "transparent",
+          pointerEvents: isVisible ? "auto" : "none",
         }}
       >
         <Suspense fallback={<LoadingFallback />}>
