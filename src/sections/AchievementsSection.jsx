@@ -87,7 +87,7 @@ const AchievementsSection = () => {
 
           {/* Stylized border quote at bottom */}
           <div className="pt-12 mt-12 border-t border-white/5 flex flex-col items-center">
-             <div className="w-px h-16 bg-gradient-to-b from-orange-400 to-transparent mb-8"></div>
+             {/* <div className="w-px h-16 bg-gradient-to-b from-orange-400 to-transparent mb-8"></div> */}
              <p className="text-white/40 text-xl font-medium italic max-w-3xl leading-relaxed">
                 "We don't just sell spare parts — we provide reliability. Our commitment to quality ensures your vehicle remains in peak condition."
              </p>

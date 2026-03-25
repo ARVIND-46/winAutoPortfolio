@@ -92,7 +92,7 @@ const HeroSection = () => {
 
        {/* Scroll Indicator */}
        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-6">
-          <div className="w-px h-16 bg-gradient-to-b from-blue-500/50 to-transparent"></div>
+          {/* <div className="w-px h-16 bg-gradient-to-b from-blue-500/50 to-transparent"></div> */}
           <a href="#about" className="text-white/40 hover:text-white transition-colors animate-bounce">
              <ChevronDown className="w-10 h-10" />
           </a>
