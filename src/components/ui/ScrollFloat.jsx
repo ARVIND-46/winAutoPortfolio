@@ -11,16 +11,18 @@ const ScrollFloat = ({
   textClassName = '',
   animationDuration = 1,
   ease = 'back.inOut(2)',
-  scrollStart = 'top bottom-=10%',
+  scrollStart = 'top 80%',
   scrollEnd = 'bottom center',
-  stagger = 0.03
+  stagger = 0.03,
+  scrub = 1,
 }) => {
   const containerRef = useRef(null);
 
   const splitText = useMemo(() => {
-    const text = typeof children === 'string' ? children : '';
+    // Ensure children is treated as a string even if React wraps it
+    const text = Array.isArray(children) ? children.join('') : (typeof children === 'string' ? children : '');
     return text.split('').map((char, index) => (
-      <span className="inline-block char-span" key={index}>
+      <span className="inline-block char-span" key={index} style={{ opacity: 0 }}>
         {char === ' ' ? '\u00A0' : char}
       </span>
     ));
@@ -58,7 +60,7 @@ const ScrollFloat = ({
             scroller,
             start: scrollStart,
             end: scrollEnd,
-            scrub: 1
+            scrub: scrub
           }
         }
       );

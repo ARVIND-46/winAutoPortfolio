@@ -20,7 +20,7 @@ const BrandsSection = () => {
   ];
 
   return (
-    <section className="bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden border-t border-white/5">
+    <section id="brands" className="bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden border-t border-white/5">
       <header className="max-w-7xl mx-auto mb-20 space-y-6 text-center">
         <div className="flex items-center justify-center gap-3">
           <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>

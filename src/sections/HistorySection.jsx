@@ -1,8 +1,17 @@
+import { useEffect, useRef } from 'react';
 import { Users } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import ScrollFloat from '@/components/ui/ScrollFloat';
+import founderImg from '@/assets/FounderImage.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HistorySection = () => {
+  const timelineRef = useRef(null);
+  const containerRef = useRef(null);
+
   const timelineData = [
     { year: '2008', title: 'Company Founded', description: 'Started operations in Chennai' },
     { year: '2011', title: 'Expanded 2-Wheeler', description: 'Wider range of spare parts' },
@@ -10,6 +19,38 @@ const HistorySection = () => {
     { year: '2019', title: 'International Export', description: 'Global operations started' },
     { year: '2024', title: 'Global Market', description: 'Strong international presence' },
   ];
+
+  useEffect(() => {
+    const el = timelineRef.current;
+    if (!el) return;
+
+    const items = el.querySelectorAll('.timeline-item');
+    
+    const ctx = gsap.context(() => {
+      gsap.fromTo(items, 
+        { 
+          opacity: 0, 
+          y: 30,
+          scale: 0.95
+        },
+        { 
+          opacity: 1, 
+          y: 0, 
+          scale: 1,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            end: "bottom 60%",
+            scrub: 1,
+          }
+        }
+      );
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section id="history" className="min-h-screen bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden">
@@ -48,9 +89,14 @@ const HistorySection = () => {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic skew-x-[-12deg] tracking-tight">
-                  FOUNDATION <span className="text-[#2563eb] transform skew-x-[12deg] inline-block">(2008)</span>
-                </h3>
+                <ScrollReveal 
+                  containerClassName="my-0"
+                  textClassName="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic skew-x-[-12deg] tracking-tight"
+                  baseRotation={0}
+                  baseOpacity={0.1}
+                >
+                  FOUNDATION (2008)
+                </ScrollReveal>
                 
                 <ScrollReveal 
                   textClassName="text-sm md:text-base lg:text-lg text-gray-300 font-medium tracking-tight opacity-90 leading-relaxed"
@@ -65,7 +111,7 @@ const HistorySection = () => {
                 <div className="flex items-center gap-5 group/founder">
                   <div className="w-16 h-16 rounded-full aspect-square overflow-hidden border-2 border-[#2563eb] shadow-[0_0_20px_rgba(37,99,235,0.3)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <img 
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200" 
+                      src={founderImg} 
                       alt="Founders" 
                       className="w-full h-full object-cover"
                     />
@@ -87,9 +133,9 @@ const HistorySection = () => {
             <div className="relative">
               <div className="absolute top-10 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
               
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6" ref={timelineRef}>
                 {timelineData.map((item, index) => (
-                  <div key={index} className="relative group">
+                  <div key={index} className="relative group timeline-item">
                     <div className="flex flex-col items-center space-y-6">
                       <div className="relative z-10 w-12 h-12 bg-[#0a0b0d] flex items-center justify-center rounded-full border border-blue-500/30 group-hover:border-blue-400 group-hover:scale-110 transition-all duration-500">
                         <div className="w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(37,99,235,0.8)]"></div>
