@@ -1,6 +1,13 @@
 import ScrollFloat from '@/components/ui/ScrollFloat';
 import MagicBento from '@/components/ui/MagicBento';
 import CountUp from '@/components/ui/CountUp';
+import BorderGlow from '@/components/ui/BorderGlow';
+
+// Achievement Images
+import img1 from '@/assets/Achivements/image1.png';
+import img2 from '@/assets/Achivements/image2.png';
+import img3 from '@/assets/Achivements/image3.png';
+import img4 from '@/assets/Achivements/image4.png';
 
 const AchievementsSection = () => {
   const achievementItems = [
@@ -96,6 +103,47 @@ const AchievementsSection = () => {
           enableMagnetism={true}
           clickEffect={true}
         />
+
+        {/* Recognition Gallery Section */}
+        <div className="mt-32 space-y-12">
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">Awards & Recognition</h2>
+            <div className="w-24 h-1 bg-blue-500 rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { img: img1, title: 'Authorized Distributor', desc: 'Official certification from Bajaj Auto Limited.' },
+              { img: img2, title: 'Excellence in Service', desc: 'Recognized for outstanding customer support.' },
+              { img: img3, title: 'Top Performer', desc: 'Annual achievement award for market leadership.' },
+              { img: img4, title: 'Loyalty Award', desc: 'Commitment to the automotive ecosystem.' }
+            ].map((item, idx) => (
+              <BorderGlow
+                key={idx}
+                edgeSensitivity={30}
+                glowColor="59 130 246"
+                backgroundColor="#0a0b0e"
+                borderRadius={24}
+                glowRadius={50}
+                glowIntensity={1.2}
+                animated={true}
+                colors={['#3b82f6', '#f97316', '#60a5fa']}
+              >
+                <div className="group relative aspect-[4/5] overflow-hidden rounded-[20px]">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">{item.title}</h4>
+                    <p className="text-white/60 text-[10px] uppercase tracking-wider leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </BorderGlow>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto w-full">

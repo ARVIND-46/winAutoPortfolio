@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, Send, ChevronDown } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, ChevronDown, Upload } from 'lucide-react';
 import ScrollFloat from '@/components/ui/ScrollFloat';
 
 const ContactSection = () => {
@@ -98,67 +98,81 @@ const ContactSection = () => {
 
            <form className="space-y-10 relative z-10">
               <div className="space-y-8">
-                 {[
-                   { label: 'Full Name', placeholder: 'Your Name', type: 'text' },
-                   { label: 'Email Address', placeholder: 'name@email.com', type: 'email' },
-                   { label: 'Phone Number', placeholder: '+91 XXXXX XXXXX', type: 'tel' }
-                 ].map(field => (
-                   <div key={field.label} className="space-y-4 group/field">
+                 {/* Name Row */}
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                   <div className="space-y-4 group/field">
                       <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none group-focus-within/field:text-blue-500 transition-colors">
-                        {field.label}
+                        First Name <span className="text-orange-500">*</span>
                       </label>
                       <input 
-                        type={field.type}
-                        placeholder={field.placeholder}
+                        type="text"
+                        placeholder="John"
                         className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 text-white text-lg font-medium placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all"
+                        required
                       />
                    </div>
-                 ))}
-
-                 <div className="space-y-4 group/field">
-                    <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none">
-                       Inquiry Type
-                    </label>
-                    <div className="relative">
-                      <select 
-                        defaultValue=""
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 text-white text-lg font-medium appearance-none focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all cursor-pointer"
-                      >
-                        <option value="" disabled>Select a topic</option>
-                        <option value="sales">Spare Parts Inquiry</option>
-                        <option value="dist">Distribution Partnership</option>
-                        <option value="export">Export Opportunity</option>
-                        <option value="other">General Query</option>
-                      </select>
-                      <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-white/20 pointer-events-none" />
-                    </div>
+                   <div className="space-y-4 group/field">
+                      <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none group-focus-within/field:text-blue-500 transition-colors">
+                        Last Name <span className="text-orange-500">*</span>
+                      </label>
+                      <input 
+                        type="text"
+                        placeholder="Doe"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 text-white text-lg font-medium placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all"
+                        required
+                      />
+                   </div>
                  </div>
 
                  <div className="space-y-4 group/field">
-                    <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none">
-                       Subject
+                    <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none group-focus-within/field:text-blue-500 transition-colors">
+                      Email Address <span className="text-orange-500">*</span>
                     </label>
                     <input 
-                      type="text"
-                      placeholder="Brief subject line"
+                      type="email"
+                      placeholder="name@email.com"
                       className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 text-white text-lg font-medium placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all"
+                      required
                     />
                  </div>
 
                  <div className="space-y-4 group/field">
                     <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none">
-                       Message
+                       Your Message <span className="text-orange-500">*</span>
                     </label>
                     <textarea 
                       placeholder="Tell us how we can help..."
-                      rows={4}
+                      rows={5}
                       className="w-full bg-white/5 border border-white/10 rounded-3xl p-6 text-white text-lg font-medium placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.07] transition-all resize-none"
+                      required
                     ></textarea>
+                 </div>
+
+                 {/* Attachment Section */}
+                 <div className="space-y-4">
+                    <label className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] leading-none">
+                       Attachment <span className="text-white/30 text-[8px] tracking-widest">(Optional)</span>
+                    </label>
+                    <div className="relative group/upload">
+                       <input 
+                         type="file" 
+                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+                       />
+                       <div className="w-full border-2 border-dashed border-white/10 rounded-[2.5rem] p-12 flex flex-col items-center justify-center gap-4 bg-white/[0.02] group-hover/upload:border-blue-500/50 group-hover/upload:bg-white/[0.05] transition-all duration-500">
+                          <div className="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center group-hover/upload:scale-110 transition-transform duration-500">
+                             <Upload className="w-8 h-8" />
+                          </div>
+                          <div className="text-center space-y-2">
+                             <p className="text-white font-bold uppercase tracking-widest text-sm">Click to upload or drag and drop</p>
+                             <p className="text-white/30 text-[10px] uppercase tracking-[0.2em]">SVG, PNG, JPG or GIF (max. 5MB)</p>
+                          </div>
+                       </div>
+                    </div>
                  </div>
               </div>
 
               <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-[0.4em] py-8 rounded-[2.5rem] flex items-center justify-center gap-4 transition-all duration-500 transform hover:scale-[1.02] shadow-[0_20px_40px_rgba(37,99,235,0.3)]">
-                 Submit Message
+                 Send Message
                  <Send className="w-6 h-6" />
               </button>
            </form>
