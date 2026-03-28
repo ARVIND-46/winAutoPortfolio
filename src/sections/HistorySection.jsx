@@ -68,7 +68,7 @@ const HistorySection = () => {
         
         <ScrollFloat 
           containerClassName="text-left"
-          textClassName="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+          textClassName="text-4xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.9] md:leading-none"
         >
           HISTORY
         </ScrollFloat>
@@ -131,20 +131,21 @@ const HistorySection = () => {
             <h4 className="text-blue-400 font-bold tracking-[0.2em] uppercase text-[10px] opacity-40">Our Journey At A Glance</h4>
             
             <div className="relative">
-              <div className="absolute top-10 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+              {/* Vertical line on mobile, horizontal on desktop */}
+              <div className="absolute top-10 left-6 md:left-0 w-[1px] md:w-full h-[calc(100%-80px)] md:h-[1px] bg-gradient-to-b md:bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
               
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6" ref={timelineRef}>
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-16 md:gap-6" ref={timelineRef}>
                 {timelineData.map((item, index) => (
-                  <div key={index} className="relative group timeline-item">
-                    <div className="flex flex-col items-center space-y-6">
-                      <div className="relative z-10 w-12 h-12 bg-[#0a0b0d] flex items-center justify-center rounded-full border border-blue-500/30 group-hover:border-blue-400 group-hover:scale-110 transition-all duration-500">
+                  <div key={index} className="relative group timeline-item pt-4 md:pt-0">
+                    <div className="flex flex-row md:flex-col items-center gap-6 md:gap-0 md:space-y-6">
+                      <div className="relative z-10 w-12 h-12 bg-[#0a0b0d] flex-shrink-0 flex items-center justify-center rounded-full border border-blue-500/30 group-hover:border-blue-400 group-hover:scale-110 transition-all duration-500">
                         <div className="w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(37,99,235,0.8)]"></div>
                       </div>
                       
-                      <div className="space-y-2 px-2">
+                      <div className="space-y-2 text-left md:text-center">
                         <p className="text-2xl font-black text-blue-500 italic tracking-tighter">{item.year}</p>
                         <h5 className="text-white text-[11px] font-black uppercase tracking-tight opacity-70 group-hover:opacity-100">{item.title}</h5>
-                        <p className="text-gray-500 text-[9px] font-bold uppercase leading-tight max-w-[100px] mx-auto">
+                        <p className="text-gray-500 text-[9px] font-bold uppercase leading-tight max-w-[100px] md:mx-auto">
                           {item.description}
                         </p>
                       </div>

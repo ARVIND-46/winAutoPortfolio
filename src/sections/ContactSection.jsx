@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock, Send, ChevronDown } from 'lucide-react';
+import ScrollFloat from '@/components/ui/ScrollFloat';
 
 const ContactSection = () => {
   return (
@@ -8,9 +9,12 @@ const ContactSection = () => {
           <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
           <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.5em]">Reach Out To Us</span>
         </div>
-        <h2 className="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none">
+        <ScrollFloat 
+          containerClassName="text-center"
+          textClassName="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+        >
           GET IN TOUCH
-        </h2>
+        </ScrollFloat>
         <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-orange-400 mx-auto rounded-full"></div>
       </header>
 

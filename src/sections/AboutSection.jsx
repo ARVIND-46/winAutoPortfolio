@@ -50,7 +50,7 @@ const AboutSection = () => {
           
           <ScrollFloat 
             containerClassName="text-left"
-            textClassName="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+            textClassName="text-2xl sm:text-6xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.9] md:leading-none"
           >
             ABOUT WIN AUTO
           </ScrollFloat>
@@ -60,24 +60,24 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32">
           {coreValues.map((value) => (
-            <div key={value.id} className="relative group p-10 bg-[#0c0d10] border border-white/5 rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500">
+            <div key={value.id} className="relative group p-8 sm:p-10 bg-[#0c0d10] border border-white/5 rounded-[2rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500">
               {/* Background Number */}
-              <span className="absolute -bottom-10 -right-4 text-[12rem] font-black text-white/[0.02] leading-none pointer-events-none">
+              <span className="absolute -bottom-10 -right-4 text-[8rem] sm:text-[12rem] font-black text-white/[0.02] leading-none pointer-events-none">
                 {value.id}
               </span>
 
-              <div className={`w-16 h-16 rounded-2xl mb-10 flex items-center justify-center shadow-lg
+              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl mb-8 sm:mb-10 flex items-center justify-center shadow-lg
                 ${value.color === 'blue' ? 'bg-blue-600/10 text-blue-500' : 
                   value.color === 'cyan' ? 'bg-cyan-600/10 text-cyan-500' : 
                   'bg-orange-600/10 text-orange-500'}`}>
-                <value.icon className="w-8 h-8" />
+                <value.icon className="w-7 h-7 sm:w-8 sm:h-8" />
               </div>
 
               <div className="space-y-4 relative z-10">
                 <span className="text-[10px] font-bold text-blue-500/60 uppercase tracking-[0.3em]">
                   {value.subtitle}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight italic">
+                <h3 className="text-xl sm:text-3xl font-black text-white uppercase tracking-tight italic">
                   {value.title}
                 </h3>
                 <p className="text-white/50 text-sm leading-relaxed font-medium pb-8 border-b border-white/5">
@@ -86,7 +86,7 @@ const AboutSection = () => {
                 
                 <div className="pt-6">
                   <div className="flex flex-col">
-                    <span className="text-4xl font-black text-blue-500 tracking-tighter">
+                    <span className="text-3xl sm:text-4xl font-black text-blue-500 tracking-tighter">
                       {value.stat}
                     </span>
                     <span className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mt-1">

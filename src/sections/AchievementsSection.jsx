@@ -52,7 +52,7 @@ const AchievementsSection = () => {
         
         <ScrollFloat 
           containerClassName="text-center"
-          textClassName="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+          textClassName="text-2xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
         >
           ACHIEVEMENTS
         </ScrollFloat>
@@ -64,7 +64,7 @@ const AchievementsSection = () => {
         {/* Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 items-center">
           <div className="flex flex-col items-center gap-2 group">
-            <div className="text-7xl md:text-8xl font-black flex items-baseline group-hover:scale-110 transition-transform duration-500">
+            <div className="text-6xl md:text-8xl font-black flex items-baseline group-hover:scale-110 transition-transform duration-500">
               <CountUp to={17} className="text-blue-500 italic" duration={1.5} />
               <span className="text-orange-500 italic ml-1">+</span>
             </div>
@@ -72,7 +72,7 @@ const AchievementsSection = () => {
           </div>
 
           <div className="flex flex-col items-center gap-2 group">
-            <div className="text-7xl md:text-8xl font-black flex items-baseline group-hover:scale-110 transition-transform duration-500">
+            <div className="text-6xl md:text-8xl font-black flex items-baseline group-hover:scale-110 transition-transform duration-500">
               <CountUp to={50} className="text-blue-500 italic" duration={1.5} />
               <span className="text-blue-500 italic">K</span>
               <span className="text-orange-500 italic ml-1">+</span>
@@ -81,7 +81,7 @@ const AchievementsSection = () => {
           </div>
 
           <div className="flex flex-col items-center gap-2 group">
-            <div className="text-7xl md:text-8xl font-black text-blue-500 italic leading-[0.8] group-hover:scale-110 transition-transform duration-500">
+            <div className="text-6xl md:text-8xl font-black text-blue-500 italic leading-[0.8] group-hover:scale-110 transition-transform duration-500">
               ∞
             </div>
             <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.4em] group-hover:text-white transition-colors duration-500 uppercase mt-4">Commitment</span>
@@ -105,8 +105,8 @@ const AchievementsSection = () => {
           </div>
           
           <div className="space-y-6">
-            <h3 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">
-              QUALITY SERVICE • CUSTOMER SATISFACTION <br className="hidden md:block" /> • SUSTAINABLE GROWTH
+            <h3 className="text-xl sm:text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-tight md:leading-none">
+              QUALITY SERVICE • <br className="md:hidden" /> CUSTOMER SATISFACTION • <br className="md:hidden" /> SUSTAINABLE GROWTH
             </h3>
             <p className="text-orange-400 font-bold uppercase tracking-[0.3em] italic text-sm">
               "To be the leading automotive spare parts supplier"

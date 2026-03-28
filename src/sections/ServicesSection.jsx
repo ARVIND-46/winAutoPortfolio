@@ -61,7 +61,7 @@ const ServicesSection = () => {
         
         <ScrollFloat 
           containerClassName="text-left"
-          textClassName="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+          textClassName="text-2xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.9] md:leading-none"
         >
           OUR SERVICES
         </ScrollFloat>
@@ -71,23 +71,23 @@ const ServicesSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto w-full mb-32">
         {services.map((service) => (
-          <div key={service.id} className="relative p-12 bg-[#0c0d10] border border-white/5 rounded-[3rem] shadow-2xl hover:border-blue-500/30 transition-all duration-700 group overflow-hidden">
+          <div key={service.id} className="relative p-8 sm:p-12 bg-[#0c0d10] border border-white/5 rounded-[2rem] sm:rounded-[3rem] shadow-2xl hover:border-blue-500/30 transition-all duration-700 group overflow-hidden">
             {/* Background Number */}
-            <div className="absolute bottom-0 right-0 text-[12rem] font-black text-white/[0.03] leading-none -mr-8 -mb-12 group-hover:text-white/[0.05] transition-colors duration-700">
+            <div className="absolute bottom-0 right-0 text-[8rem] sm:text-[12rem] font-black text-white/[0.03] leading-none -mr-8 -mb-12 group-hover:text-white/[0.05] transition-colors duration-700">
               {service.id}
             </div>
 
-            <div className="relative z-10 space-y-12">
-              <div className={`w-24 h-24 rounded-3xl flex items-center justify-center shadow-lg transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3 
+            <div className="relative z-10 space-y-8 sm:space-y-12">
+              <div className={`w-16 h-16 sm:w-24 sm:h-24 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-lg transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3 
                 ${service.color === 'blue' ? 'bg-blue-600 text-white' : 'bg-emerald-600 text-white'}`}>
-                <service.icon className="w-12 h-12" />
+                <service.icon className="w-8 h-8 sm:w-12 sm:h-12" />
               </div>
 
-              <div className="space-y-6">
-                <h3 className="text-3xl font-black text-white uppercase tracking-tight leading-tight">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-white/40 leading-relaxed font-medium">
+                <p className="text-white/40 text-sm sm:text-base leading-relaxed font-medium">
                   {service.description}
                 </p>
               </div>
@@ -105,26 +105,26 @@ const ServicesSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto w-full">
-        <div className="bg-[#0c0d10] border border-white/5 rounded-[4rem] p-12 lg:p-20 overflow-hidden relative shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-10 relative z-10">
+        <div className="bg-[#0c0d10] border border-white/5 rounded-[2.5rem] md:rounded-[4rem] p-8 sm:p-12 lg:p-20 overflow-hidden relative shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-8 sm:space-y-10 relative z-10">
               <div className="space-y-4">
-                <h3 className="text-4xl lg:text-5xl font-black text-white uppercase italic tracking-tighter">Exporting Excellence</h3>
-                <div className="w-20 h-1 bg-blue-500 rounded-full"></div>
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase italic tracking-tighter leading-[0.9]">Exporting Excellence</h3>
+                <div className="w-16 h-1 bg-blue-500 rounded-full"></div>
               </div>
-              <p className="text-white/60 text-xl leading-relaxed font-medium uppercase tracking-tight italic">
+              <p className="text-white/60 text-lg sm:text-xl leading-relaxed font-medium uppercase tracking-tight italic">
                  Apart from distributing spares all over India, we export to countries like Sri Lanka, Singapore, Malaysia, and several nations across Africa.
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {['Sri Lanka', 'Singapore', 'Malaysia', 'Africa'].map(country => (
-                  <div key={country} className="flex items-center gap-3 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 text-[10px] font-black tracking-widest uppercase hover:bg-blue-600 hover:text-white transition-all duration-300">
-                      <CheckCircle2 className="w-4 h-4 text-blue-500 group-hover:text-white" />
+                  <div key={country} className="flex items-center gap-2 sm:gap-3 bg-white/5 px-4 py-2 sm:px-6 sm:py-3 rounded-xl sm:rounded-2xl border border-white/10 text-[9px] sm:text-[10px] font-black tracking-widest uppercase hover:bg-blue-600 hover:text-white transition-all duration-300">
+                      <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 group-hover:text-white" />
                       {country}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative h-[500px] flex items-center justify-center bg-blue-500/5 rounded-[3rem] border border-white/5 overflow-hidden group">
+            <div className="relative h-[300px] md:h-[500px] flex items-center justify-center bg-blue-500/5 rounded-[2rem] md:rounded-[3rem] border border-white/5 overflow-hidden group">
                <Globe3DDemo />
             </div>
           </div>
