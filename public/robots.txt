@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://winauto.in.net/sitemap.xml
