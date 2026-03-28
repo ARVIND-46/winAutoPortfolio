@@ -1,5 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { X } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 const useMedia = (queries, values, defaultValue) => {
   const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
@@ -67,6 +69,7 @@ const Masonry = ({
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   // Performance Optimization: Intersection Observer
   useEffect(() => {
@@ -202,6 +205,51 @@ const Masonry = ({
     }
   };
 
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    const modal = document.querySelector('.lightbox-modal');
+    if (modal) {
+      gsap.to(modal, {
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.4,
+        ease: 'power3.in',
+        onComplete: () => {
+          setSelectedItem(null);
+          document.body.style.overflow = '';
+        }
+      });
+    } else {
+      setSelectedItem(null);
+      document.body.style.overflow = '';
+    }
+  };
+
+  useEffect(() => {
+    if (selectedItem) {
+      const modal = document.querySelector('.lightbox-modal');
+      const content = document.querySelector('.lightbox-content');
+      if (modal && content) {
+        gsap.set(modal, { opacity: 0 });
+        gsap.set(content, { scale: 0.8, opacity: 0, y: 20 });
+        
+        gsap.to(modal, { opacity: 1, duration: 0.5, ease: 'power2.out' });
+        gsap.to(content, { 
+          scale: 1, 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.6, 
+          delay: 0.1, 
+          ease: 'expo.out' 
+        });
+      }
+    }
+  }, [selectedItem]);
+
   const containerHeight = useMemo(() => {
     if (!grid.length) return 0;
     return Math.max(...grid.map(item => item.y + item.h));
@@ -215,7 +263,13 @@ const Masonry = ({
           data-key={item.id}
           className="absolute box-content cursor-pointer"
           style={{ willChange: 'transform, width, height, opacity' }}
-          onClick={() => item.url && window.open(item.url, '_blank', 'noopener')}
+          onClick={() => {
+            if (item.url) {
+              window.open(item.url, '_blank', 'noopener');
+            } else {
+              handleItemClick(item);
+            }
+          }}
           onMouseEnter={e => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >
@@ -235,6 +289,32 @@ const Masonry = ({
           </div>
         </div>
       ))}
+
+      {selectedItem && createPortal(
+        <div 
+          className="lightbox-modal fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4 md:p-12"
+          onClick={closeLightbox}
+        >
+          <button 
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-2 bg-white/5 rounded-full backdrop-blur-md border border-white/10 z-[10000]"
+          >
+            <X size={32} />
+          </button>
+          
+          <div 
+            className="lightbox-content relative max-w-7xl w-full h-full flex items-center justify-center p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={selectedItem.img} 
+              alt="" 
+              className="max-w-full max-h-full object-contain rounded-2xl shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-white/10"
+            />
+          </div>
+        </div>,
+        document.body
+      )}
     </div>
   );
 };

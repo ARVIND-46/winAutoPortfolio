@@ -1,23 +1,27 @@
 import LogoLoop from '../components/LogoLoop';
-import bajajLogo from '../assets/brands/bajaj.png';
-import motulLogo from '../assets/brands/motul.png';
-import kbxLogo from '../assets/brands/kbx.png';
+const brandImages = import.meta.glob('../assets/brands/*.{png,jpg,jpeg,svg,avif}', { eager: true });
 
 const BrandsSection = () => {
   const brands = [
-    { name: 'BAJAJ', src: bajajLogo, isImage: true },
-    { name: 'MOTUL', src: motulLogo, isImage: true },
-    { name: 'KBX', src: kbxLogo, isImage: true },
-    { name: 'FLASH', color: 'text-blue-500', isImage: false },
-    { name: 'LUMINAZ', color: 'text-teal-500', isImage: false },
-    { name: 'ADVIK', color: 'text-white', isImage: false },
-    { name: 'ANABOND', color: 'text-green-500', isImage: false },
-    { name: 'UCAL', color: 'text-blue-400', isImage: false },
-    { name: 'NP', color: 'text-red-500', isImage: false },
-    { name: 'OETIKER', color: 'text-white', isImage: false },
-    { name: 'BOSCH', color: 'text-white', isImage: false },
-    { name: 'MINDA', color: 'text-white', isImage: false },
-  ];
+    { name: 'BAJAJ', file: 'Bajaj.png' },
+    { name: 'MOTUL', file: 'motul.png' },
+    { name: 'KBX', file: 'KBX.png' },
+    { name: 'FLASH', file: 'Flash.png', color: 'text-blue-500' },
+    { name: 'LUMINAZ', file: 'Luminaz.png', color: 'text-teal-500' },
+    { name: 'ADVIK', file: 'Advik.png', color: 'text-white' },
+    { name: 'ANABOND', file: 'Anabond.png', color: 'text-green-500' },
+    { name: 'UCAL', file: 'Ucal.png', color: 'text-blue-400' },
+    { name: 'NP', file: 'Np.png', color: 'text-red-500' },
+    { name: 'OETIKER', file: 'Otiker.png', color: 'text-white' },
+  ].map(brand => {
+    const imagePath = `../assets/brands/${brand.file}`;
+    const importedImage = brandImages[imagePath];
+    return {
+      ...brand,
+      src: importedImage?.default || importedImage,
+      isImage: !!importedImage
+    };
+  });
 
   return (
     <section id="brands" className="bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden border-t border-white/5">
@@ -33,16 +37,16 @@ const BrandsSection = () => {
         {/* Mobile View: Grid */}
         <div className="grid grid-cols-2 gap-6 md:hidden">
           {brands.slice(0, 12).map((brand, index) => (
-            <div key={index} className="h-32 bg-[#0c0d10] border border-white/5 rounded-3xl flex items-center justify-center p-8 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
+            <div key={index} className="h-32 bg-[#0c0d10] border border-white/5 rounded-3xl flex items-center justify-center p-4 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                {brand.isImage ? (
                   <img 
                     src={brand.src} 
                     alt={brand.name} 
-                    className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 opacity-30 hover:opacity-100 group-hover:scale-110"
+                    className="h-full w-auto object-contain transition-all duration-700 group-hover:scale-110"
                   />
                 ) : (
-                  <span className={`text-2xl font-black italic tracking-tighter ${brand.color} opacity-30 hover:opacity-100 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110`}>
+                  <span className={`text-2xl font-black italic tracking-tighter ${brand.color} opacity-40 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110`}>
                     {brand.name}
                   </span>
                 )}
@@ -61,16 +65,16 @@ const BrandsSection = () => {
             fadeOut={true}
             fadeOutColor="#060709"
             renderItem={(brand) => (
-              <div className="h-24 bg-[#0c0d10] border border-white/5 rounded-[2rem] min-w-[200px] flex items-center justify-center p-8 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
+              <div className="h-24 bg-[#0c0d10] border border-white/5 rounded-[2rem] min-w-[200px] flex items-center justify-center p-4 group hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 {brand.isImage ? (
                   <img 
                     src={brand.src} 
                     alt={brand.name} 
-                    className="h-full w-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 opacity-30 hover:opacity-100 group-hover:scale-110"
+                    className="h-full w-auto object-contain transition-all duration-700 group-hover:scale-110"
                   />
                 ) : (
-                  <span className={`text-2xl md:text-3xl font-black italic tracking-tighter ${brand.color} opacity-30 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110`}>
+                  <span className={`text-2xl md:text-3xl font-black italic tracking-tighter ${brand.color} opacity-40 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110`}>
                     {brand.name}
                   </span>
                 )}

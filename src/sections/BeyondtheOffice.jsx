@@ -26,8 +26,8 @@ const BeyondtheOffice = () => {
   ];
 
   return (
-    <section id="beyond-the-office" className="bg-[#060709] pt-32 pb-16 px-6 lg:px-12 relative overflow-hidden">
-      <header className="max-w-7xl mx-auto mb-24 space-y-6 text-center">
+    <section id="beyond-the-office" className="bg-[#060709] pt-40 pb-16 px-6 lg:px-12 relative overflow-hidden">
+      <header className="max-w-7xl mx-auto mb-16 space-y-6 text-center">
         <div className="flex items-center justify-center gap-3">
           <div className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
           <span className="text-[10px] font-bold text-orange-400 uppercase tracking-[0.5em]">Our Culture</span>
@@ -35,7 +35,7 @@ const BeyondtheOffice = () => {
         
         <ScrollFloat 
           containerClassName="text-center"
-          textClassName="text-2xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+          textClassName="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
         >
           BEYOND THE OFFICE
         </ScrollFloat>
