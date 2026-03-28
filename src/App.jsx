@@ -8,6 +8,7 @@ import WhySection from './sections/WhySection';
 import ValuesSection from './sections/ValuesSection';
 import ServicesSection from './sections/ServicesSection';
 import AchievementsSection from './sections/AchievementsSection';
+import BeyondtheOffice from './sections/BeyondtheOffice';
 import BrandsSection from './sections/BrandsSection';
 import ContactSection from './sections/ContactSection';
 
@@ -24,6 +25,7 @@ const App = () => {
         <ValuesSection />
         <ServicesSection />
         <AchievementsSection />
+        <BeyondtheOffice />
         <BrandsSection />
         <ContactSection />
       </div>
