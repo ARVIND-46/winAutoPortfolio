@@ -11,6 +11,7 @@ import AchievementsSection from './sections/AchievementsSection';
 import BeyondtheOffice from './sections/BeyondtheOffice';
 import BrandsSection from './sections/BrandsSection';
 import ContactSection from './sections/ContactSection';
+import CatalogSection from './sections/CatalogSection';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <WhySection />
         <ValuesSection />
         <ServicesSection />
+        <CatalogSection />
         <AchievementsSection />
         <BeyondtheOffice />
         <BrandsSection />
