@@ -21,7 +21,7 @@ const ContactSection = () => {
         </div>
         <ScrollFloat
           containerClassName="text-center"
-          textClassName="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+          textClassName="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tight sm:tracking-tighter uppercase leading-tight md:leading-none"
         >
           GET IN TOUCH
         </ScrollFloat>
@@ -31,7 +31,7 @@ const ContactSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto w-full">
         {/* Contact Info Column */}
         <div className="space-y-8">
-          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-8 sm:p-12 space-y-10 shadow-2xl">
+          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-6 sm:p-10 lg:p-12 space-y-10 shadow-2xl">
             <div className="flex gap-8 items-start group">
               <div className="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
                 <Phone className="w-8 h-8" />
@@ -39,8 +39,8 @@ const ContactSection = () => {
               <div className="space-y-2">
                 <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest leading-none">Call Us</span>
                 <div className="flex flex-col gap-1">
-                  <p className="text-lg sm:text-xl md:text-2xl font-black text-white tracking-tighter">+91 91507 60720</p>
-                  <p className="text-lg sm:text-xl md:text-2xl font-black text-white tracking-tighter">+91 96001 87328</p>
+                  <p className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tighter">+91 91507 60720</p>
+                  <p className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tighter">+91 96001 87328</p>
                 </div>
               </div>
             </div>
@@ -53,36 +53,40 @@ const ContactSection = () => {
               </div>
               <div className="space-y-2 overflow-hidden">
                 <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest leading-none">Email Us</span>
-                <p className="text-lg sm:text-xl md:text-2xl font-black text-white tracking-tighter truncate">arunwinauto@gmail.com</p>
+                <p className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tighter truncate">arunwinauto@gmail.com</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-12 space-y-6 shadow-2xl">
+          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-6 sm:p-10 lg:p-12 space-y-6 shadow-2xl">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                 <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Head Office</span>
               </div>
-              <p className="text-xl font-bold text-white/60 leading-relaxed uppercase">
-                Chennai, Tamil Nadu, <br /> India – 600 001
+              <p className="text-sm sm:text-lg font-bold text-white/60 leading-relaxed uppercase italic">
+                S.no.40, 1/3a, Chettiyar Agaram St, <br /> 
+                Sivabatham, Vanagaram, <br />
+                Chennai, Tamil Nadu 600095
               </p>
             </div>
           </div>
 
-          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-12 space-y-6 shadow-2xl">
+          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-6 sm:p-10 lg:p-12 space-y-6 shadow-2xl">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                 <span className="text-[10px] font-bold text-teal-400 uppercase tracking-widest">Warehouse</span>
               </div>
-              <p className="text-xl font-bold text-white/60 leading-relaxed uppercase">
-                Win Auto Warehouse, <br /> Chennai Industrial Hub
+              <p className="text-sm sm:text-lg font-bold text-white/60 leading-relaxed uppercase italic">
+                Win Auto Warehouse, <br /> 
+                Vanagaram Industrial Area, <br />
+                Chennai – 600 095
               </p>
             </div>
           </div>
 
-          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-12 space-y-4 shadow-2xl">
+          <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-6 sm:p-10 lg:p-12 space-y-4 shadow-2xl">
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.4)]"></div>
               <span className="text-[10px] font-bold text-orange-400 uppercase tracking-widest">Business Hours</span>
@@ -99,10 +103,10 @@ const ContactSection = () => {
         </div>
 
         {/* Message Form Column */}
-        <div className="bg-[#0c0d10] border border-white/5 rounded-[4rem] p-12 lg:p-20 shadow-2xl space-y-16 relative overflow-hidden group">
+        <div className="bg-[#0c0d10] border border-white/5 rounded-[4rem] p-8 sm:p-12 lg:p-20 shadow-2xl space-y-16 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
 
-          <h3 className="text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-none relative z-10">
+          <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-none relative z-10">
             SEND US A <br /> MESSAGE
           </h3>
 

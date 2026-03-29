@@ -60,7 +60,7 @@ const HeroSection = () => {
               
               <div className="h-8 md:h-12 flex items-center">
                  <TextType 
-                    text={["Leading Bajaj Distributor", "Authorized Motul Partner", "Excellence in Spare Parts"]}
+                    text={["Leading Bajaj Distributor", "Authorized Motul Partner", "Genuine Parts Chennai", "Excellence in Spare Parts"]}
                     className="text-sm sm:text-lg md:text-xl font-semibold text-blue-400 uppercase tracking-[0.2em] md:tracking-[0.3em] italic opacity-90"
                     typingSpeed={60}
                     pauseDuration={2500}

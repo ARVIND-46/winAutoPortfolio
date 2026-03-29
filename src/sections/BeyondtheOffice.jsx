@@ -31,14 +31,13 @@ const BeyondtheOffice = () => {
         <div className="flex items-center justify-center gap-3">
           <div className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
           <span className="text-[10px] font-bold text-orange-400 uppercase tracking-[0.5em]">Our Culture</span>
-        </div>
-        
+        </div>       
         <ScrollFloat 
           containerClassName="text-center"
-          textClassName="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
+          textClassName="text-2xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none"
         >
           BEYOND THE OFFICE
-        </ScrollFloat>
+       </ScrollFloat>
         
         <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-orange-400 mx-auto rounded-full"></div>
       </header>
