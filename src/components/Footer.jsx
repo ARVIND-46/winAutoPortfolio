@@ -21,8 +21,8 @@ const Footer = () => {
           <div>
             <h3 className="text-brand-blue font-bold text-lg mb-4 uppercase">Contact</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              <strong>Head Office:</strong> 23,Bharathiyar complex, 100 feet road, Vadapalani, Chennai - 600 026<br />
-              <strong>Warehouse:</strong> 1, Perumal Kovil street, Maduravoyal, Chennai - 600 095<br />
+              <strong>Head Office:</strong> S.no.40, 1/3a, Chettiyar Agaram St, Sivabatham, Vanagaram, Chennai - 600095<br />
+              <strong>Warehouse:</strong> Vanagaram Industrial Area, Chennai - 600 095<br />
               <strong>Email:</strong> arunwinauto@gmail.com<br />
               <strong>Phone:</strong> +91 9150760720, +91 9600187328
             </p>
