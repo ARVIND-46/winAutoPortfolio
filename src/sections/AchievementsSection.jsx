@@ -126,7 +126,9 @@ const AchievementsSection = () => {
                 <div className="group relative aspect-[4/5] overflow-hidden rounded-[20px]">
                   <img 
                     src={item.img} 
-                    alt={item.title} 
+                    alt={item.alt || ""} 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
