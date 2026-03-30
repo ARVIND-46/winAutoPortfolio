@@ -111,7 +111,7 @@ const ContactSection = () => {
           </h3>
 
           <form
-            action="https://formsubmit.co/arvind31102003@gmail.com"
+            action="https://formsubmit.co/prajaannamalai@gmail.com"
             method="POST"
             encType="multipart/form-data"
             className="space-y-10 relative z-10"

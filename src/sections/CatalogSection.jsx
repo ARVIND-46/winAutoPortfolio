@@ -65,7 +65,7 @@ const CatalogSection = () => {
             <div className="relative h-[300px] sm:h-[450px] overflow-hidden">
               <img 
                 src={item.image} 
-                alt={item.title}
+                alt={`${item.title} - Genuine Bajaj Bike Spares`}
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d10] via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700"></div>

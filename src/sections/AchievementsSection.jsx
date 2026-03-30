@@ -3,12 +3,6 @@ import MagicBento from '@/components/ui/MagicBento';
 import CountUp from '@/components/ui/CountUp';
 import BorderGlow from '@/components/ui/BorderGlow';
 
-// Achievement Images
-import img1 from '@/assets/Achivements/image1.png';
-import img2 from '@/assets/Achivements/image2.png';
-import img3 from '@/assets/Achivements/image3.png';
-import img4 from '@/assets/Achivements/image4.png';
-
 const AchievementsSection = () => {
   const achievementItems = [
     {
@@ -113,10 +107,10 @@ const AchievementsSection = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { img: img1, title: 'Authorized Distributor', desc: 'Official certification from Bajaj Auto Limited.' },
-              { img: img2, title: 'Excellence in Service', desc: 'Recognized for outstanding customer support.' },
-              { img: img3, title: 'Top Performer', desc: 'Annual achievement award for market leadership.' },
-              { img: img4, title: 'Loyalty Award', desc: 'Commitment to the automotive ecosystem.' }
+              { img: import.meta.env.VITE_ACHIEVEMENT_IMG1, title: 'Authorized Distributor', desc: 'Official certification from Bajaj Auto Limited.', alt: 'WinAuto Bajaj Authorized Distributor Certificate' },
+              { img: import.meta.env.VITE_ACHIEVEMENT_IMG2, title: 'Excellence in Service', desc: 'Recognized for outstanding customer support.', alt: 'Award for excellence in automotive spare parts service Chennai' },
+              { img: import.meta.env.VITE_ACHIEVEMENT_IMG3, title: 'Top Performer', desc: 'Annual achievement award for market leadership.', alt: 'WinAuto Top Performer award in bike spares distribution' },
+              { img: import.meta.env.VITE_ACHIEVEMENT_IMG4, title: 'Loyalty Award', desc: 'Commitment to the automotive ecosystem.', alt: 'WinAuto loyalty recognition from automotive partners' }
             ].map((item, idx) => (
               <BorderGlow
                 key={idx}

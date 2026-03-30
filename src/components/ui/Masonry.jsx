@@ -277,7 +277,7 @@ const Masonry = ({
           <div className="relative w-full h-full rounded-[20px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden bg-white/5">
              <img 
                src={item.img} 
-               alt="" 
+               alt={item.alt || ""} 
                loading="lazy" 
                decoding="async" 
                className="w-full h-full object-cover transition-opacity duration-500"
@@ -308,7 +308,7 @@ const Masonry = ({
           >
             <img 
               src={selectedItem.img} 
-              alt="" 
+              alt={selectedItem.alt || ""} 
               className="max-w-full max-h-full object-contain rounded-2xl shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-white/10"
             />
           </div>
