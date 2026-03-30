@@ -59,8 +59,9 @@ const HeroSection = () => {
               </h1>
               
               <div className="h-8 md:h-12 flex items-center">
+                 <h2 className="sr-only">Premium Bike Spares and Auto Parts in Chennai</h2>
                  <TextType 
-                    text={["Leading Bajaj Distributor", "Authorized Motul Partner", "Genuine Parts Chennai", "Excellence in Spare Parts"]}
+                    text={["Bike Spares Chennai", "Authorized Bajaj Distributor", "Genuine Auto Parts", "Motul Lubricants Partner"]}
                     className="text-sm sm:text-lg md:text-xl font-semibold text-blue-400 uppercase tracking-[0.2em] md:tracking-[0.3em] italic opacity-90"
                     typingSpeed={60}
                     pauseDuration={2500}
@@ -69,12 +70,12 @@ const HeroSection = () => {
               </div>
               <div className="border-l-2 border-blue-500 pl-4">
                  <span className="text-[10px] md:text-[11px] font-semibold text-blue-400 uppercase tracking-[0.3em] md:tracking-[0.4em]">
-                     Since 2008 • House of Genuine Parts
+                     Since 2008 • Chennai's House of Genuine Spares
                   </span>
               </div>
  
               <p className="text-sm md:text-lg text-zinc-400 max-w-md font-medium uppercase tracking-widest leading-relaxed drop-shadow-md">
-                 Reliability and stability at the core of our business for over 15 years.
+                 Reliable bike spares and automotive components for over 17 years.
               </p>
             </div>
 

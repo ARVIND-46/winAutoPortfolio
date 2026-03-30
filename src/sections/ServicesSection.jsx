@@ -28,7 +28,7 @@ const ServicesSection = () => {
     {
       id: '01',
       title: 'BAJAJ SPARE PARTS',
-      description: 'Distribution of genuine Bajaj spare parts for both 2-wheeler and 3-wheeler vehicles — factory-certified, quality guaranteed.',
+      description: 'Distribution of genuine Bajaj spare parts for Pulsar, Dominar, Discover, Platina, and 3-wheeler vehicles — factory-certified quality.',
       icon: Package,
       tag: 'GENUINE PARTS',
       color: 'blue'
@@ -36,7 +36,7 @@ const ServicesSection = () => {
     {
       id: '02',
       title: 'PAN-INDIA DISTRIBUTION',
-      description: 'Nationwide logistics network ensuring rapid, reliable delivery of spare parts to every corner of India with full tracking.',
+      description: 'Nationwide logistics network ensuring rapid delivery of bike spares and auto parts across India with real-time tracking.',
       icon: Truck,
       tag: 'NATIONWIDE',
       color: 'blue'
@@ -44,7 +44,7 @@ const ServicesSection = () => {
     {
       id: '03',
       title: 'INTERNATIONAL EXPORTS',
-      description: 'Exporting genuine Bajaj spare parts to global markets, maintaining the highest international quality and compliance standards.',
+      description: 'Exporting genuine Bajaj components and automotive parts to global markets, meeting all international quality standards.',
       icon: Globe,
       tag: 'GLOBAL REACH',
       color: 'green'

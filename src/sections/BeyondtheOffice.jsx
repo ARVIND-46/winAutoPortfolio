@@ -1,28 +1,19 @@
 import Masonry from '../components/ui/Masonry';
 import ScrollFloat from '../components/ui/ScrollFloat';
 
-// Import team images
-import img1 from '../assets/Teams/image.png';
-import img2 from '../assets/Teams/image1.png';
-import img3 from '../assets/Teams/image11.png';
-import img4 from '../assets/Teams/image2.png';
-import img5 from '../assets/Teams/image3.png';
-import img6 from '../assets/Teams/image4.png';
-import img7 from '../assets/Teams/image6.png';
-import img8 from '../assets/Teams/image7.png';
-import img9 from '../assets/Teams/image9.png';
-
 const BeyondtheOffice = () => {
   const items = [
-    { id: "1", img: img1, height: 600 },
-    { id: "2", img: img2, height: 400 },
-    { id: "3", img: img3, height: 800 },
-    { id: "4", img: img4, height: 500 },
-    { id: "5", img: img5, height: 700 },
-    { id: "6", img: img6, height: 550 },
-    { id: "7", img: img7, height: 450 },
-    { id: "8", img: img8, height: 750 },
-    { id: "9", img: img9, height: 600 },
+    { id: "1", img: import.meta.env.VITE_TEAM_IMG1, height: 600, alt: "WinAuto team working with bike spares in Chennai" },
+    { id: "2", img: import.meta.env.VITE_TEAM_IMG2, height: 400, alt: "WinAuto inventory management for genuine auto parts" },
+    { id: "3", img: import.meta.env.VITE_TEAM_IMG3, height: 800, alt: "WinAuto warehouse showcase in Chennai" },
+    { id: "4", img: import.meta.env.VITE_TEAM_IMG4, height: 500, alt: "Professional automotive components distribution team" },
+    { id: "5", img: import.meta.env.VITE_TEAM_IMG5, height: 700, alt: "Genuine Bajaj spares quality check" },
+    { id: "6", img: import.meta.env.VITE_TEAM_IMG6, height: 550, alt: "WinAuto distribution network hub" },
+    { id: "7", img: import.meta.env.VITE_TEAM_IMG7, height: 450, alt: "Automotive spare parts logistics Chennai" },
+    { id: "8", img: import.meta.env.VITE_TEAM_IMG8, height: 750, alt: "WinAuto team excellence in service" },
+    { id: "9", img: import.meta.env.VITE_TEAM_IMG9, height: 600, alt: "Three wheeler spares authorized distributor" },
+    { id: "10", img: import.meta.env.VITE_TEAM_IMG10, height: 500, alt: "WinAuto team collaboration Chennai" },
+    { id: "11", img: import.meta.env.VITE_TEAM_IMG11, height: 700, alt: "Corporate culture at WinAuto Chennai" },
   ];
 
   return (

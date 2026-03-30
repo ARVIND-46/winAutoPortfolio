@@ -59,15 +59,15 @@ const ContactSection = () => {
           </div>
 
           <div className="bg-[#0c0d10] border border-white/5 rounded-[3rem] p-6 sm:p-10 lg:p-12 space-y-6 shadow-2xl">
-            <div className="space-y-4">
+            <div className="space-y-4" itemScope itemType="https://schema.org/PostalAddress">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                 <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Head Office</span>
               </div>
               <p className="text-sm sm:text-lg font-bold text-white/60 leading-relaxed uppercase italic">
-                S.no.40, 1/3a, Chettiyar Agaram St, <br /> 
-                Sivabatham, Vanagaram, <br />
-                Chennai, Tamil Nadu 600095
+                <span itemProp="streetAddress">S.no.40, 1/3a, Chettiyar Agaram St, <br /> 
+                Sivabatham, Vanagaram</span>, <br />
+                <span itemProp="addressLocality">Chennai</span>, <span itemProp="addressRegion">Tamil Nadu</span> <span itemProp="postalCode">600095</span>
               </p>
             </div>
           </div>
@@ -111,7 +111,7 @@ const ContactSection = () => {
           </h3>
 
           <form
-            action="https://formsubmit.co/arvind31102003@gmail.com"
+            action="https://formsubmit.co/prajaannamalai@gmail.com"
             method="POST"
             encType="multipart/form-data"
             className="space-y-10 relative z-10"

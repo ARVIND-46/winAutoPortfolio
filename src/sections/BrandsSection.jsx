@@ -42,7 +42,7 @@ const BrandsSection = () => {
                {brand.isImage ? (
                   <img 
                     src={brand.src} 
-                    alt={brand.name} 
+                    alt={`${brand.name} Genuine Automotive Parts`} 
                     className="h-full w-auto object-contain transition-all duration-700 group-hover:scale-110"
                   />
                 ) : (
