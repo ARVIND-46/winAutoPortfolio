@@ -3,6 +3,11 @@ import MagicBento from '@/components/ui/MagicBento';
 import CountUp from '@/components/ui/CountUp';
 import BorderGlow from '@/components/ui/BorderGlow';
 
+const optimizeCloudinaryUrl = (url) => {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  return url.replace('/upload/', '/upload/f_auto,q_auto/');
+};
+
 const AchievementsSection = () => {
   const achievementItems = [
     {
@@ -107,10 +112,10 @@ const AchievementsSection = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { img: import.meta.env.VITE_ACHIEVEMENT_IMG1, title: 'Authorized Distributor', desc: 'Official certification from Bajaj Auto Limited.', alt: 'WinAuto Bajaj Authorized Distributor Certificate' },
-              { img: import.meta.env.VITE_ACHIEVEMENT_IMG2, title: 'Excellence in Service', desc: 'Recognized for outstanding customer support.', alt: 'Award for excellence in automotive spare parts service Chennai' },
-              { img: import.meta.env.VITE_ACHIEVEMENT_IMG3, title: 'Top Performer', desc: 'Annual achievement award for market leadership.', alt: 'WinAuto Top Performer award in bike spares distribution' },
-              { img: import.meta.env.VITE_ACHIEVEMENT_IMG4, title: 'Loyalty Award', desc: 'Commitment to the automotive ecosystem.', alt: 'WinAuto loyalty recognition from automotive partners' }
+              { img: optimizeCloudinaryUrl(import.meta.env.VITE_ACHIEVEMENT_IMG1), title: 'Authorized Distributor', desc: 'Official certification from Bajaj Auto Limited.', alt: 'WinAuto Bajaj Authorized Distributor Certificate' },
+              { img: optimizeCloudinaryUrl(import.meta.env.VITE_ACHIEVEMENT_IMG2), title: 'Excellence in Service', desc: 'Recognized for outstanding customer support.', alt: 'Award for excellence in automotive spare parts service Chennai' },
+              { img: optimizeCloudinaryUrl(import.meta.env.VITE_ACHIEVEMENT_IMG3), title: 'Top Performer', desc: 'Annual achievement award for market leadership.', alt: 'WinAuto Top Performer award in bike spares distribution' },
+              { img: optimizeCloudinaryUrl(import.meta.env.VITE_ACHIEVEMENT_IMG4), title: 'Loyalty Award', desc: 'Commitment to the automotive ecosystem.', alt: 'WinAuto loyalty recognition from automotive partners' }
             ].map((item, idx) => (
               <BorderGlow
                 key={idx}

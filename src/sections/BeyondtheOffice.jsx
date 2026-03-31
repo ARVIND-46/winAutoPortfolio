@@ -1,19 +1,24 @@
 import Masonry from '../components/ui/Masonry';
 import ScrollFloat from '../components/ui/ScrollFloat';
 
+const optimizeCloudinaryUrl = (url) => {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  return url.replace('/upload/', '/upload/f_auto,q_auto/');
+};
+
 const BeyondtheOffice = () => {
   const items = [
-    { id: "1", img: import.meta.env.VITE_TEAM_IMG1, height: 600, alt: "WinAuto team working with bike spares in Chennai" },
-    { id: "2", img: import.meta.env.VITE_TEAM_IMG2, height: 400, alt: "WinAuto inventory management for genuine auto parts" },
-    { id: "3", img: import.meta.env.VITE_TEAM_IMG3, height: 800, alt: "WinAuto warehouse showcase in Chennai" },
-    { id: "4", img: import.meta.env.VITE_TEAM_IMG4, height: 500, alt: "Professional automotive components distribution team" },
-    { id: "5", img: import.meta.env.VITE_TEAM_IMG5, height: 700, alt: "Genuine Bajaj spares quality check" },
-    { id: "6", img: import.meta.env.VITE_TEAM_IMG6, height: 550, alt: "WinAuto distribution network hub" },
-    { id: "7", img: import.meta.env.VITE_TEAM_IMG7, height: 450, alt: "Automotive spare parts logistics Chennai" },
-    { id: "8", img: import.meta.env.VITE_TEAM_IMG8, height: 750, alt: "WinAuto team excellence in service" },
-    { id: "9", img: import.meta.env.VITE_TEAM_IMG9, height: 600, alt: "Three wheeler spares authorized distributor" },
-    { id: "10", img: import.meta.env.VITE_TEAM_IMG10, height: 500, alt: "WinAuto team collaboration Chennai" },
-    { id: "11", img: import.meta.env.VITE_TEAM_IMG11, height: 700, alt: "Corporate culture at WinAuto Chennai" },
+    { id: "1", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG1), height: 600, alt: "WinAuto team working with bike spares in Chennai" },
+    { id: "2", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG2), height: 400, alt: "WinAuto inventory management for genuine auto parts" },
+    { id: "3", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG3), height: 800, alt: "WinAuto warehouse showcase in Chennai" },
+    { id: "4", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG4), height: 500, alt: "Professional automotive components distribution team" },
+    { id: "5", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG5), height: 700, alt: "Genuine Bajaj spares quality check" },
+    { id: "6", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG6), height: 550, alt: "WinAuto distribution network hub" },
+    { id: "7", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG7), height: 450, alt: "Automotive spare parts logistics Chennai" },
+    { id: "8", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG8), height: 750, alt: "WinAuto team excellence in service" },
+    { id: "9", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG9), height: 600, alt: "Three wheeler spares authorized distributor" },
+    { id: "10", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG10), height: 500, alt: "WinAuto team collaboration Chennai" },
+    { id: "11", img: optimizeCloudinaryUrl(import.meta.env.VITE_TEAM_IMG11), height: 700, alt: "Corporate culture at WinAuto Chennai" },
   ];
 
   return (

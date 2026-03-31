@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.winauto.in.net"
+        }
+      ],
+      "destination": "https://winauto.in.net/$1",
+      "permanent": true
+    }
+  ]
+}

@@ -7,7 +7,7 @@ const AboutSection = () => {
       id: '01',
       title: 'Customer Satisfaction',
       subtitle: 'CORE VALUE 01',
-      description: 'WinAuto has highly trained employees ensuring delivery of genuine bike spares and auto parts, maintaining the highest customer satisfaction in Chennai.',
+      description: 'WinAuto has highly trained employees ensuring delivery of genuine Bajaj bike spares and auto parts across Porur, Villivakkam, Vadapalani, and Chromepet, maintaining the highest customer satisfaction in Chennai.',
       icon: UserCheck,
       stat: '100%',
       statLabel: 'COMMITMENT',

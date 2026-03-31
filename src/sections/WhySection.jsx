@@ -1,8 +1,10 @@
+import { useEffect, useRef, useState } from 'react';
 import { Star, Zap, Package, Heart } from 'lucide-react';
 import ScrollFloat from '@/components/ui/ScrollFloat';
 import CardSwap, { Card } from '@/components/ui/CardSwap';
 
 const WhySection = () => {
+  const [headerElement, setHeaderElement] = useState(null);
   const reasons = [
     {
       title: 'Stand out from competitors',
@@ -33,7 +35,7 @@ const WhySection = () => {
   return (
     <section id="why" className="min-h-screen bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <header className="space-y-4">
+        <header ref={setHeaderElement} className="space-y-4">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
             <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.5em]">The Win Advantage</span>
@@ -43,6 +45,8 @@ const WhySection = () => {
             <ScrollFloat 
               containerClassName="text-left my-0"
               textClassName="text-5xl sm:text-8xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.8]"
+              trigger={headerElement}
+              scrollStart="top 95%"
             >
               WHY
             </ScrollFloat>
@@ -50,6 +54,8 @@ const WhySection = () => {
             <ScrollFloat 
               containerClassName="text-left my-0"
               textClassName="text-5xl sm:text-8xl md:text-9xl font-black tracking-tighter uppercase leading-[1] opacity-30 [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] text-transparent"
+              trigger={headerElement}
+              scrollStart="top 95%"
             >
               WE'RE
             </ScrollFloat>
@@ -57,6 +63,8 @@ const WhySection = () => {
             <ScrollFloat 
               containerClassName="text-left my-0"
               textClassName="text-5xl sm:text-8xl md:text-9xl font-black text-blue-500 tracking-tighter uppercase leading-[1]"
+              trigger={headerElement}
+              scrollStart="top 95%"
             >
               THE BEST
             </ScrollFloat>
