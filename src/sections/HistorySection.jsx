@@ -91,7 +91,7 @@ const HistorySection = () => {
               <div className="space-y-4">
                 <ScrollReveal 
                   containerClassName="my-0"
-                  textClassName="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic skew-x-[-12deg] tracking-tight"
+                  textClassName="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase  skew-x-[-12deg] tracking-tight"
                   baseRotation={0}
                   baseOpacity={0.1}
                 >

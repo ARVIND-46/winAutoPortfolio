@@ -15,7 +15,6 @@ const ScrollFloat = ({
   scrollEnd = 'bottom center',
   stagger = 0.03,
   scrub = 1,
-  trigger = null,
 }) => {
   const containerRef = useRef(null);
 
@@ -34,16 +33,6 @@ const ScrollFloat = ({
     if (!el) return;
 
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
-    
-    // Resolve trigger: could be a ref object or a DOM element
-    let triggerElement = el;
-    if (trigger) {
-      if (trigger.current) {
-        triggerElement = trigger.current;
-      } else if (trigger instanceof HTMLElement) {
-        triggerElement = trigger;
-      }
-    }
 
     const charElements = el.querySelectorAll('.char-span');
 
@@ -67,7 +56,7 @@ const ScrollFloat = ({
           scaleX: 1,
           stagger: stagger,
           scrollTrigger: {
-            trigger: triggerElement,
+            trigger: el,
             scroller,
             start: scrollStart,
             end: scrollEnd,
@@ -78,10 +67,10 @@ const ScrollFloat = ({
     }, el);
 
     return () => ctx.revert();
-  }, [scrollContainerRef, trigger, animationDuration, ease, scrollStart, scrollEnd, stagger, children]);
+  }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger, children]);
 
   return (
-    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+    <h2 ref={containerRef} className={`my-5 overflow-hidden ${containerClassName}`}>
       <span className={`inline-block leading-[1.2] ${textClassName}`}>{splitText}</span>
     </h2>
   );

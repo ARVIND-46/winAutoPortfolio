@@ -1,6 +1,10 @@
+import { useEffect, useRef } from 'react';
 import { Package, Globe, Truck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Globe3D } from "@/components/ui/3d-globe";
-import ScrollFloat from '@/components/ui/ScrollFloat';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const sampleMarkers = [
   { lat: 28.6139, lng: 77.209, src: "https://assets.aceternity.com/avatars/6.webp", label: "New Delhi" },
@@ -24,6 +28,54 @@ export function Globe3DDemo() {
 }
 
 const ServicesSection = () => {
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+
+    const chars = el.querySelectorAll('.char');
+    
+    const ctx = gsap.context(() => {
+      gsap.fromTo(chars, 
+        {
+          opacity: 0,
+          yPercent: 120,
+          scaleY: 2.3,
+          scaleX: 0.7,
+          transformOrigin: '50% 0%'
+        },
+        {
+          duration: 1,
+          ease: 'back.inOut(2)',
+          opacity: 1,
+          yPercent: 0,
+          scaleY: 1,
+          scaleX: 1,
+          stagger: 0.03,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+          }
+        }
+      );
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
+
+  const renderWords = (text) => {
+    return text.split(' ').map((word, wordIndex) => (
+      <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em] overflow-hidden pb-1">
+        {word.split('').map((char, charIndex) => (
+          <span key={charIndex} className="inline-block char" style={{ opacity: 0 }}>
+            {char}
+          </span>
+        ))}
+      </span>
+    ));
+  };
+
   const services = [
     {
       id: '01',
@@ -59,12 +111,9 @@ const ServicesSection = () => {
           <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.5em]">What We Do</span>
         </div>
         
-        <ScrollFloat 
-          containerClassName="text-left"
-          textClassName="text-2xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.9] md:leading-none"
-        >
-          OUR SERVICES
-        </ScrollFloat>
+        <h2 ref={headingRef} className="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.9] md:leading-none text-left">
+          {renderWords("OUR SERVICES")}
+        </h2>
         
         <div className="w-24 h-1.5 bg-blue-500 rounded-full"></div>
       </header>
