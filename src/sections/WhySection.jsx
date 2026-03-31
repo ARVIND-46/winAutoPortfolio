@@ -1,8 +1,14 @@
+import { useEffect, useRef } from 'react';
 import { Star, Zap, Package, Heart } from 'lucide-react';
-import ScrollFloat from '@/components/ui/ScrollFloat';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CardSwap, { Card } from '@/components/ui/CardSwap';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const WhySection = () => {
+  const headingRef = useRef(null);
+
   const reasons = [
     {
       title: 'Stand out from competitors',
@@ -30,6 +36,48 @@ const WhySection = () => {
     },
   ];
 
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+
+    const chars = el.querySelectorAll('.char');
+    
+    const ctx = gsap.context(() => {
+      gsap.fromTo(chars, 
+        {
+          opacity: 0,
+          yPercent: 120,
+          scaleY: 2.3,
+          scaleX: 0.7,
+          transformOrigin: '50% 0%'
+        },
+        {
+          duration: 1,
+          ease: 'back.inOut(2)',
+          opacity: 1,
+          yPercent: 0,
+          scaleY: 1,
+          scaleX: 1,
+          stagger: 0.03,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+          }
+        }
+      );
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
+
+  const renderText = (text) => {
+    return text.split('').map((char, index) => (
+      <span key={index} className="inline-block char" style={{ opacity: 0 }}>
+        {char === ' ' ? '\u00A0' : char}
+      </span>
+    ));
+  };
+
   return (
     <section id="why" className="min-h-screen bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -39,27 +87,18 @@ const WhySection = () => {
             <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.5em]">The Win Advantage</span>
           </div>
           
-          <div className="flex flex-col gap-0">
-            <ScrollFloat 
-              containerClassName="text-left my-0"
-              textClassName="text-5xl sm:text-8xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.8]"
-            >
-              WHY
-            </ScrollFloat>
+          <div ref={headingRef} className="flex flex-col gap-0 pb-2">
+            <h2 className="text-5xl sm:text-8xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.8] mb-2 overflow-hidden py-2">
+              {renderText("WHY")}
+            </h2>
             
-            <ScrollFloat 
-              containerClassName="text-left my-0"
-              textClassName="text-5xl sm:text-8xl md:text-9xl font-black tracking-tighter uppercase leading-[1] opacity-30 [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] text-transparent"
-            >
-              WE'RE
-            </ScrollFloat>
+            <h2 className="text-5xl sm:text-8xl md:text-9xl font-black tracking-tighter uppercase leading-[1] opacity-30 [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] text-transparent mb-2 overflow-hidden py-2">
+              {renderText("WE'RE")}
+            </h2>
 
-            <ScrollFloat 
-              containerClassName="text-left my-0"
-              textClassName="text-5xl sm:text-8xl md:text-9xl font-black text-blue-500 tracking-tighter uppercase leading-[1]"
-            >
-              THE BEST
-            </ScrollFloat>
+            <h2 className="text-5xl sm:text-8xl md:text-9xl font-black text-blue-500 tracking-tighter uppercase leading-[1] overflow-hidden py-2">
+              {renderText("THE BEST")}
+            </h2>
           </div>
           
           <div className="w-32 md:w-48 h-2 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full mt-8 shadow-[0_0_20px_rgba(37,99,235,0.4)]"></div>
