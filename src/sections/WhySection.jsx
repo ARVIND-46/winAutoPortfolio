@@ -79,7 +79,7 @@ const WhySection = () => {
   };
 
   return (
-    <section id="why" className="min-h-screen bg-[#060709] py-32 px-6 lg:px-12 relative overflow-hidden">
+    <section id="why" className="min-h-screen bg-[#060709] py-20 lg:py-32 px-6 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <header className="space-y-4">
           <div className="flex items-center gap-3 mb-8">
@@ -115,7 +115,7 @@ const WhySection = () => {
           </div>
         </header>
 
-        <div className="relative h-[500px] lg:h-[700px] flex items-center justify-center">
+        <div className="relative h-[300px] sm:h-[500px] lg:h-[700px] flex items-center justify-center -mt-8 sm:mt-0">
           <CardSwap
             width={450}
             height={320}

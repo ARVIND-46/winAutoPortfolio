@@ -24,7 +24,7 @@ const ChatBot = () => {
     let link = null;
 
     if (id === 'locations') {
-      responseText = 'We have 4 branches in Chennai:\n1. Vadapalani\n2. Chromepet\n3. Villivakkam\n4. Porur\nYou can find full addresses in our footer!';
+      responseText = 'We have 6 branches in Chennai:\n1. Vadapalani\n2. Chromepet\n3. Villivakkam\n4. Velachery\n5. Porur\n6. Old Washermenpet\nYou can find full addresses and contact numbers in our footer!';
     } else if (id === 'catalog') {
       responseText = 'You can view our digital catalog here:';
       link = { label: 'Go to Catalog', url: '#catalog' };
