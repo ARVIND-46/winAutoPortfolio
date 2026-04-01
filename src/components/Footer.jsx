@@ -31,16 +31,22 @@ const Footer = () => {
             <h3 className="text-brand-blue font-bold text-lg mb-4 uppercase">Branch Locations</h3>
             <div className="text-gray-600 text-xs leading-relaxed space-y-3">
               <address className="not-italic">
-                <strong>Vadapalani:</strong> 23, 1st Street Thiru Nagar Colony, Wholesale Market Complex, Vadapalani, Chennai 600078
+                <strong>Vadapalani:</strong> NO-23 BHRATHIYAR COMPLEX 100FT ROAD VADAPALANI-CHENNAI-600026<br />Ph: 7550160111
               </address>
               <address className="not-italic">
-                <strong>Chromepet:</strong> 123, National Hwy 32, Lakshmi Nagar, Shanthi Nagar, Chromepet, Chennai 600044
+                <strong>Chromepet:</strong> NO-123 G STROAD CROMPET CHENNAI-600044<br />Ph: 7550160333
               </address>
               <address className="not-italic">
-                <strong>Villivakkam:</strong> No.39/2, Madras Thiruvallur High Rd, Villivakkam, Chennai 600049
+                <strong>Villivakkam:</strong> NO-39 /2, M T H ROAD VILLIVAKKAMCHENNAI-600049<br />Ph: 7550160444
               </address>
               <address className="not-italic">
-                <strong>Porur:</strong> No 124/12, Thirumurugan Rd, near Viveks Agency, Kamala Nagar, Porur, Chennai 600116
+                <strong>Velachery:</strong> NO-95/94 KANNIKAPURAM, 7TH STREET VELACHERRY MAIN ROAD CHENNAI-600042<br />Ph: 7550160555
+              </address>
+              <address className="not-italic">
+                <strong>Porur:</strong> 124 / 10 - THIRUMURUGAN ROAD, KAMALA NAGAR, PORUR CHENNAI-600116<br />Ph: 7550160666
+              </address>
+              <address className="not-italic">
+                <strong>Old Washermenpet:</strong> NO-27/1, CEMENTRY ROAD OLDWASHERMENPET CHENNAI-600021<br />Ph: 7550160888
               </address>
             </div>
           </div>
