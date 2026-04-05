@@ -1,18 +1,18 @@
 import LogoLoop from '../components/LogoLoop';
-const brandImages = import.meta.glob('../assets/brands/*.{png,jpg,jpeg,svg,avif}', { eager: true });
+const brandImages = import.meta.glob('../assets/brands/*.{png,jpg,jpeg,svg,avif,webp}', { eager: true });
 
 const BrandsSection = () => {
   const brands = [
-    { name: 'BAJAJ', file: 'Bajaj.png' },
-    { name: 'MOTUL', file: 'motul.png' },
-    { name: 'KBX', file: 'KBX.png' },
-    { name: 'FLASH', file: 'Flash.png', color: 'text-blue-500' },
-    { name: 'LUMINAZ', file: 'Luminaz.png', color: 'text-teal-500' },
-    { name: 'ADVIK', file: 'Advik.png', color: 'text-white' },
-    { name: 'ANABOND', file: 'Anabond.png', color: 'text-green-500' },
-    { name: 'UCAL', file: 'Ucal.png', color: 'text-blue-400' },
-    { name: 'NP', file: 'Np.png', color: 'text-red-500' },
-    { name: 'OETIKER', file: 'Otiker.png', color: 'text-white' },
+    { name: 'BAJAJ', file: 'Bajaj.webp' },
+    { name: 'MOTUL', file: 'motul.webp' },
+    { name: 'KBX', file: 'KBX.webp' },
+    { name: 'FLASH', file: 'Flash.webp', color: 'text-blue-500' },
+    { name: 'LUMINAZ', file: 'Luminaz.webp', color: 'text-teal-500' },
+    { name: 'ADVIK', file: 'Advik.webp', color: 'text-white' },
+    { name: 'ANABOND', file: 'Anabond.webp', color: 'text-green-500' },
+    { name: 'UCAL', file: 'Ucal.webp', color: 'text-blue-400' },
+    { name: 'NP', file: 'Np.webp', color: 'text-red-500' },
+    { name: 'OETIKER', file: 'Otiker.webp', color: 'text-white' },
   ].map(brand => {
     const imagePath = `../assets/brands/${brand.file}`;
     const importedImage = brandImages[imagePath];

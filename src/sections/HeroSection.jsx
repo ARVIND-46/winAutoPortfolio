@@ -1,33 +1,29 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import TextType from '../components/TextType';
+import heroBg from '../assets/hero-bg-landscape.webp';
+
 const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-       {/* Cinematic Video Background */}
-       <div className="absolute inset-0 z-0 opacity-40 overflow-hidden bg-black">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover scale-105"
-            aria-label="WinAuto premium auto parts overview"
-            title="WinAuto Cinematic Overview"
-          >
-            <source src="https://res.cloudinary.com/dp7mj2sk1/video/upload/v1775054840/PULSAR_N160_Cinematic_Video_4K_BajajPulsarOfficial_1080P_c7c5em.mp4" type="video/mp4" />
-          </video>
+       {/* Cinematic Image Background with Ken Burns */}
+       <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+          <img
+            src={heroBg}
+            alt="WinAuto premium auto parts overview"
+            className="w-full h-full object-cover opacity-50 animate-kenburns origin-center"
+          />
        </div>
        
-       {/* Overlay Gradient */}
-       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-transparent to-black/60"></div>
+       {/* Overlay Gradient with Radial Depth */}
+       <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black/60 via-black/80 to-black/100 md:from-black/20 md:via-black/60 md:to-black/90"></div>
 
        <div className="container mx-auto px-6 relative z-20 pt-20 md:pt-0">
           <div className="max-w-4xl space-y-8 md:space-y-12">
             
             <div className="space-y-4 md:space-y-6">
               <h1 className="text-6xl sm:text-7xl md:text-[10rem] font-black text-white leading-[0.9] md:leading-[0.8] tracking-tighter uppercase italic drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]">
-                 WIN <span className="text-blue-500 not-italic font-light">AUTO</span>
+                 WIN <span className="text-blue-400 not-italic font-light drop-shadow-[0_0_15px_rgba(96,165,250,0.6)]">AUTO</span>
               </h1>
               
               <div className="h-8 md:h-12 flex items-center">
@@ -40,13 +36,13 @@ const HeroSection = () => {
                     cursorCharacter="_"
                  />
               </div>
-              <div className="border-l-2 border-blue-500 pl-4">
-                 <span className="text-[10px] md:text-[11px] font-semibold text-blue-400 uppercase tracking-[0.3em] md:tracking-[0.4em]">
+              <div className="border-l-2 border-blue-400 pl-4 mb-4 md:mb-0">
+                 <span className="text-[10px] md:text-xs font-bold text-blue-300 uppercase tracking-[0.25em] md:tracking-[0.3em] drop-shadow-md">
                      Since 2008 • Chennai's House of Genuine Spares
                   </span>
               </div>
  
-              <p className="text-sm md:text-lg text-zinc-400 max-w-md font-medium uppercase tracking-widest leading-relaxed drop-shadow-md">
+              <p className="text-sm md:text-lg text-zinc-400 max-w-md font-medium uppercase tracking-widest leading-loose md:leading-relaxed drop-shadow-md pt-2 md:pt-0">
                  Reliable bike spares and automotive components for over 17 years.
               </p>
             </div>
@@ -56,7 +52,7 @@ const HeroSection = () => {
                   Our Story
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                </a>
-               <a href="#contact" className="px-6 md:px-10 py-4 md:py-5 bg-white/5 text-white font-black rounded-2xl border border-white/10 hover:bg-white/10 hover:border-white/30 backdrop-blur-md transition-all uppercase tracking-[0.2em] text-[10px] hover:-translate-y-1.5 active:scale-95 shadow-lg w-full md:w-auto text-center">
+               <a href="#contact" className="px-6 md:px-10 py-4 md:py-5 bg-transparent text-white font-bold rounded-2xl border-2 border-white/40 hover:bg-white hover:text-black hover:border-white transition-all uppercase tracking-[0.2em] text-[10px] hover:-translate-y-1.5 active:scale-95 shadow-lg w-full md:w-auto text-center">
                   Contact Now
                </a>
             </div>
@@ -64,10 +60,9 @@ const HeroSection = () => {
        </div>
 
        {/* Scroll Indicator */}
-       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-6">
-          {/* <div className="w-px h-16 bg-gradient-to-b from-blue-500/50 to-transparent"></div> */}
+       <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-50 flex flex-col items-center gap-6">
           <a href="#about" className="text-white/40 hover:text-white transition-colors animate-bounce">
-             <ChevronDown className="w-10 h-10" />
+             <ChevronDown className="w-8 h-8 md:w-10 md:h-10" />
           </a>
        </div>
     </section>

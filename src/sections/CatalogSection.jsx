@@ -1,8 +1,8 @@
 import React from 'react';
 import { ExternalLink, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
 import ScrollFloat from '../components/ui/ScrollFloat';
-import twoWheelerImg from '../assets/Catalog/two-wheeler.png';
-import threeWheelerImg from '../assets/Catalog/three-wheeler.png';
+import twoWheelerImg from '../assets/Catalog/two-wheeler.webp';
+import threeWheelerImg from '../assets/Catalog/three-wheeler.webp';
 
 const CatalogSection = () => {
   const catalogs = [

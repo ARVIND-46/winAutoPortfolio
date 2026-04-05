@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import winLogo from '../assets/winlogo.png';
+import winLogo from '../assets/winlogo.webp';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
         scrolled
           ? 'bg-black/40 backdrop-blur-xl py-4 shadow-[0_10px_40px_rgba(30,58,138,0.15)]'
-          : 'bg-transparent py-5 md:py-10'
+          : 'bg-transparent py-8 md:py-10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">

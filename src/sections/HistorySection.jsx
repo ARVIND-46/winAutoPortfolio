@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import ScrollFloat from '@/components/ui/ScrollFloat';
-import founderImg from '@/assets/FounderImage.png';
+import founderImg from '@/assets/FounderImage.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
