@@ -60,11 +60,11 @@ const HeroSection = () => {
        </div>
 
        {/* Scroll Indicator */}
-       <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-50 flex flex-col items-center gap-6">
-          <a href="#about" className="text-white/40 hover:text-white transition-colors animate-bounce">
-             <ChevronDown className="w-8 h-8 md:w-10 md:h-10" />
-          </a>
-       </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-6">
+         <a href="#about" className="text-white/40 hover:text-white transition-colors animate-bounce">
+         <ChevronDown className="w-8 h-8 md:w-10 md:h-10" />
+         </a>
+      </div>
     </section>
   );
 };
