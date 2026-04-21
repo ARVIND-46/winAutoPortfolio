@@ -14,7 +14,7 @@ const ScrollFloat = ({
   scrollStart = 'top 90%',
   scrollEnd = 'bottom center',
   stagger = 0.03,
-  scrub = 1,
+  scrub = false,
 }) => {
   const containerRef = useRef(null);
 
@@ -60,7 +60,8 @@ const ScrollFloat = ({
             scroller,
             start: scrollStart,
             end: scrollEnd,
-            scrub: scrub
+            scrub: scrub,
+            toggleActions: scrub ? undefined : "play none none reverse"
           }
         }
       );

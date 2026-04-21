@@ -64,6 +64,8 @@ const CatalogSection = () => {
             {/* Image Container with Parallax-like effect */}
             <div className="relative h-[300px] sm:h-[450px] overflow-hidden">
               <img 
+                width="600"
+                height="400"
                 src={item.image} 
                 alt={`${item.title} - Genuine Bajaj Bike Spares`}
                 loading="lazy"

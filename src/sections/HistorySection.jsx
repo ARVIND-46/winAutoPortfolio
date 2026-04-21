@@ -111,6 +111,8 @@ const HistorySection = () => {
                 <div className="flex items-center gap-5 group/founder">
                   <div className="w-16 h-16 rounded-full aspect-square overflow-hidden border-2 border-[#2563eb] shadow-[0_0_20px_rgba(37,99,235,0.3)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <img 
+                      width="64"
+                      height="64"
                       src={founderImg} 
                       alt="Founders" 
                       className="w-full h-full object-cover"

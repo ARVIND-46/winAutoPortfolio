@@ -12,6 +12,7 @@ const ChatBot = () => {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
+  const [inputValue, setInputValue] = useState('');
 
   const quickActions = [
     { id: 'locations', label: 'Our Locations', icon: <MapPin size={16} /> },
@@ -49,6 +50,34 @@ const ChatBot = () => {
     };
 
     setMessages([...messages, newMessage, botMessage]);
+  };
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!inputValue.trim()) return;
+
+    const newMessage = {
+      id: messages.length + 1,
+      type: 'user',
+      text: inputValue.trim(),
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    };
+
+    const tempMessages = [...messages, newMessage];
+    setMessages(tempMessages);
+    setInputValue('');
+
+    // Simulate bot reply
+    setTimeout(() => {
+      const botResponse = {
+        id: tempMessages.length + 1,
+        type: 'bot',
+        text: 'Thank you for your message. Currently, our AI is being upgraded. Please contact us on WhatsApp for immediate assistance.',
+        link: { label: 'Contact on WhatsApp', url: 'https://wa.me/919150760720' },
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      };
+      setMessages((prev) => [...prev, botResponse]);
+    }, 1000);
   };
 
   return (
@@ -118,7 +147,7 @@ const ChatBot = () => {
             {/* Footer / Smart Actions */}
             <div className="p-4 bg-white border-t border-gray-100">
               <p className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-2 px-1">Quick Actions</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 {quickActions.map((action) => (
                   <button
                     key={action.id}
@@ -130,6 +159,23 @@ const ChatBot = () => {
                   </button>
                 ))}
               </div>
+              
+              <form onSubmit={handleSendMessage} className="flex gap-2">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder="Type your message..."
+                  className="flex-1 bg-gray-50 border border-gray-200 text-gray-800 text-xs rounded-full px-4 py-2 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
+                />
+                <button
+                  type="submit"
+                  disabled={!inputValue.trim()}
+                  className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors flex-shrink-0"
+                >
+                  <Send size={14} />
+                </button>
+              </form>
             </div>
           </motion.div>
         )}

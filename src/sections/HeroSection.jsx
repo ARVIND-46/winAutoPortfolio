@@ -9,6 +9,8 @@ const HeroSection = () => {
        {/* Cinematic Image Background with Ken Burns */}
        <div className="absolute inset-0 z-0 overflow-hidden bg-black">
           <img
+            width="1920"
+            height="1080"
             src={heroBg}
             alt="WinAuto premium auto parts overview"
             className="w-full h-full object-cover opacity-50 animate-kenburns origin-center"

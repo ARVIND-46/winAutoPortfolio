@@ -160,7 +160,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-32 items-center">
           
           {/* Our Story Text */}
-          <div className="lg:col-span-5 xl:col-span-4 space-y-8 order-2 lg:order-1">
+          <div className="lg:col-span-5 xl:col-span-4 space-y-8">
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
               <span className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.5em]">Our Story</span>
@@ -182,7 +182,7 @@ const AboutSection = () => {
                  className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/5 shadow-lg cursor-pointer"
                  onClick={() => handleImageClick(import.meta.env.VITE_ABOUT_IMG2)}
                >
-                 <img src={import.meta.env.VITE_ABOUT_IMG2} alt="WinAuto Inventory Management" className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                 <img width="800" height="600" src={import.meta.env.VITE_ABOUT_IMG2} alt="WinAuto Inventory Management" className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                  <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/20 transition-all duration-300 flex items-center justify-center pointer-events-none">
                    <div className="opacity-0 group-hover:opacity-100 bg-black/50 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest transition-opacity duration-300">View</div>
                  </div>
@@ -191,7 +191,7 @@ const AboutSection = () => {
                  className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/5 shadow-lg cursor-pointer"
                  onClick={() => handleImageClick(import.meta.env.VITE_ABOUT_IMG3)}
                >
-                 <img src={import.meta.env.VITE_ABOUT_IMG3} alt="WinAuto Warehouse Scale" className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                 <img width="800" height="600" src={import.meta.env.VITE_ABOUT_IMG3} alt="WinAuto Warehouse Scale" className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                  <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/20 transition-all duration-300 flex items-center justify-center pointer-events-none">
                    <div className="opacity-0 group-hover:opacity-100 bg-black/50 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest transition-opacity duration-300">View</div>
                  </div>
@@ -201,11 +201,13 @@ const AboutSection = () => {
 
           {/* Featured Image (60-70% width) */}
           <div 
-            className="lg:col-span-7 xl:col-span-8 h-[400px] sm:h-[500px] lg:h-[700px] rounded-2xl overflow-hidden relative group border border-white/5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] order-1 lg:order-2 cursor-pointer"
+            className="lg:col-span-7 xl:col-span-8 h-[400px] sm:h-[500px] lg:h-[700px] rounded-2xl overflow-hidden relative group border border-white/5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] cursor-pointer"
             onClick={() => handleImageClick(import.meta.env.VITE_ABOUT_IMG1)}
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-orange-500/5 mix-blend-overlay z-10 pointer-events-none"></div>
             <img 
+              width="1200"
+              height="800"
               src={import.meta.env.VITE_ABOUT_IMG1} 
               alt="WinAuto Wide Aisle Premium Spare Parts Storage" 
               className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover:scale-105 transition-transform duration-[1.5s]" 
@@ -233,7 +235,7 @@ const AboutSection = () => {
                   onClick={() => handleImageClick(value.image)}
                 >
                    <div className="absolute inset-0 bg-blue-600/5 group-hover/img:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay"></div>
-                   <img src={value.image} alt={value.imageAlt} className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover/img:scale-110 transition-transform duration-700" loading="lazy" />
+                   <img width="800" height="600" src={value.image} alt={value.imageAlt} className="w-full h-full object-cover brightness-110 contrast-105 saturate-[1.2] group-hover/img:scale-110 transition-transform duration-700" loading="lazy" />
                    <div className="absolute inset-0 z-20 bg-blue-500/0 group-hover/img:bg-blue-500/20 transition-all duration-300 flex items-center justify-center pointer-events-none">
                      <div className="opacity-0 group-hover/img:opacity-100 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest transition-opacity duration-300">View</div>
                    </div>
